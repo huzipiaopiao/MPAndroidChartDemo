@@ -55,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
         //x轴设置动画了不好看，只设置y轴
         chart.animateY(2000, Easing.EasingOption.EaseInOutCubic);//设置一个y方向的动画
 
+        CustomMarkerView mv = new CustomMarkerView(this, R.layout.custom_marker_view_layout);
+        chart.setMarker(mv);
+
         IAxisValueFormatter formatter = new IAxisValueFormatter() {
 
             @Override
