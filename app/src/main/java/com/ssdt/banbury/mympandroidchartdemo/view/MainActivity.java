@@ -1,9 +1,14 @@
-package com.ssdt.banbury.mympandroidchartdemo;
+package com.ssdt.banbury.mympandroidchartdemo.view;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
@@ -18,34 +23,58 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.utils.ViewPortHandler;
+import com.ssdt.banbury.mympandroidchartdemo.R;
+import com.ssdt.banbury.mympandroidchartdemo.widget.CustomMarkerView;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import tyrantgit.explosionfield.ExplosionField;
 
 public class MainActivity extends AppCompatActivity {
 
     private List<Integer> randomData = new ArrayList<>();
     private List<String> randomXString = new ArrayList<>();
     private Random mRandom = new Random();
+    private LineChart mChart;
+    private ExplosionField mExplosionField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mExplosionField = ExplosionField.attach2Window(this);
         initChart3();
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.second:
+                startActivity(new Intent(this,BigDataActivity.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void initChart3() {
-        LineChart chart = (LineChart) findViewById(R.id.chart);
-        chart.setBackgroundColor(getArgb());
+        mChart = (LineChart) findViewById(R.id.chart);
+        mChart.setBackgroundColor(getArgb());
         Description description = new Description();
         description.setEnabled(true);
         description.setText("水印MPAndroidChart");
         description.setTextColor(getArgb());
-        chart.setDescription(description);
-        chart.setAutoScaleMinMaxEnabled(true);//缩放时，是否显示一个值
-        Legend legend = chart.getLegend();//获取左下角的那个图例，就是每条线会对应有个legend，根据legend的文字说明和颜色可以知道对应线是什么数据
+        mChart.setDescription(description);
+        mChart.setAutoScaleMinMaxEnabled(true);//缩放时，是否显示一个值
+        Legend legend = mChart.getLegend();//获取左下角的那个图例，就是每条线会对应有个legend，根据legend的文字说明和颜色可以知道对应线是什么数据
         legend.setEnabled(true);
         legend.setForm(Legend.LegendForm.CIRCLE);//设置legend的头像样式
         legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);//设置legend的位置
@@ -53,10 +82,10 @@ public class MainActivity extends AppCompatActivity {
         legend.setWordWrapEnabled(true);//legend太长时，是否另起一行
 
         //x轴设置动画了不好看，只设置y轴
-        chart.animateY(2000, Easing.EasingOption.EaseInOutCubic);//设置一个y方向的动画
+        mChart.animateY(2000, Easing.EasingOption.EaseInOutCubic);//设置一个y方向的动画
 
         CustomMarkerView mv = new CustomMarkerView(this, R.layout.custom_marker_view_layout);
-        chart.setMarker(mv);
+        mChart.setMarker(mv);
 
         IAxisValueFormatter formatter = new IAxisValueFormatter() {
 
@@ -74,13 +103,13 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        XAxis xAxis = chart.getXAxis();
+        XAxis xAxis = mChart.getXAxis();
         xAxis.setGranularity(1f); // 设置放大时，最小粒度
         xAxis.setValueFormatter(formatter);
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setDrawGridLines(false);
-        chart.getAxisRight().setEnabled(false);
-        YAxis axisLeft = chart.getAxisLeft();
+        mChart.getAxisRight().setEnabled(false);
+        YAxis axisLeft = mChart.getAxisLeft();
         axisLeft.setGranularity(1f);//设置放大时，最小粒度
         axisLeft.setAxisMinimum(0);
         List<Entry> entries = new ArrayList<>();
@@ -114,8 +143,8 @@ public class MainActivity extends AppCompatActivity {
 
         LineData lineData = new LineData(dataSet, dataSet2);
         lineData.setValueFormatter(iValueFormatter);
-        chart.setData(lineData);
-        chart.invalidate(); // refresh
+        mChart.setData(lineData);
+        mChart.invalidate(); // refresh
 
         //下面为表创建好后，添加或删除数据需要进行的操作
 //        // EXAMPLE 1
@@ -130,6 +159,14 @@ public class MainActivity extends AppCompatActivity {
 //        exampleData.notifyDataChanged(); // let the data know a dataSet changed
 //        chart.notifyDataSetChanged(); // let the chart know it's data changed
 //        chart.invalidate(); // refresh
+
+        mChart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                mExplosionField.explode(mChart);
+            }
+        });
+
     }
 
     private int getArgb() {

@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFF2F2F2"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="325dp"
+            android:background="#ffffff"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="42dp"
+                android:gravity="center_vertical"
+                android:text="温度统计"
+                android:textColor="#ff1f1f1f"
+                android:textSize="15sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="#fff2f2f2"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#ffffff">
+
+                <TextView
+                    android:id="@+id/tv_mid_temperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="至"
+                    android:textColor="#ff1f1f1f"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/tv_start_time_temperature"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/tv_mid_temperature"
+                    android:gravity="center"
+                    android:text="开始时间"/>
+
+                <TextView
+                    android:id="@+id/tv_end_time_temperature"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_mid_temperature"
+                    android:gravity="center"
+                    android:text="结束时间"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_temperature_component"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawablePadding="5dp"
+                android:drawableRight="@drawable/ic_more_unfold"
+                android:gravity="center"
+                android:text="全部部件"
+                android:textColor="#ffe14444"
+                android:textSize="13sp"
+                />
+
+            <com.ssdt.banbury.mympandroidchartdemo.widget.LineChartInViewPager
+                android:id="@+id/line_chart_temperature"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="325dp"
+            android:background="#ffffff"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="42dp"
+                android:gravity="center_vertical"
+                android:text="湿度统计"
+                android:textColor="#ff1f1f1f"
+                android:textSize="15sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="#fff2f2f2"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#ffffff">
+
+                <TextView
+                    android:id="@+id/tv_mid_humidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="至"
+                    android:textColor="#ff1f1f1f"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/tv_start_time_humidity"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/tv_mid_humidity"
+                    android:gravity="center"
+                    android:text="开始时间"/>
+
+                <TextView
+                    android:id="@+id/tv_end_time_humidity"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_mid_humidity"
+                    android:gravity="center"
+                    android:text="结束时间"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_humidity_component"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawablePadding="5dp"
+                android:drawableRight="@drawable/ic_more_unfold"
+                android:gravity="center"
+                android:text="全部部件"
+                android:textColor="#ffe14444"
+                android:textSize="13sp"
+                />
+
+            <com.ssdt.banbury.mympandroidchartdemo.widget.LineChartInViewPager
+                android:id="@+id/line_chart_humidity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="305dp"
+            android:background="#ffffff"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="42dp"
+                android:gravity="center_vertical"
+                android:text="部件参数统计"
+                android:textColor="#ff1f1f1f"
+                android:textSize="15sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="#fff2f2f2"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#ffffff">
+
+                <TextView
+                    android:id="@+id/tv_mid_component_both"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="至"
+                    android:textColor="#ff1f1f1f"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/tv_start_time_component_both"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/tv_mid_component_both"
+                    android:gravity="center"
+                    android:text="开始时间"/>
+
+                <TextView
+                    android:id="@+id/tv_end_time_component_both"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_mid_component_both"
+                    android:gravity="center"
+                    android:text="结束时间"/>
+
+            </RelativeLayout>
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/bar_chart_component_both"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="305dp"
+            android:background="#ffffff"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="42dp"
+                android:gravity="center_vertical"
+                android:text="传感器警告统计"
+                android:textColor="#ff1f1f1f"
+                android:textSize="15sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="#fff2f2f2"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#ffffff">
+
+                <TextView
+                    android:id="@+id/tv_mid_senser_alarm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="至"
+                    android:textColor="#ff1f1f1f"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/tv_start_time_senser_alarm"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/tv_mid_senser_alarm"
+                    android:gravity="center"
+                    android:text="开始时间"/>
+
+                <TextView
+                    android:id="@+id/tv_end_time_senser_alarm"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_mid_senser_alarm"
+                    android:gravity="center"
+                    android:text="结束时间"/>
+
+            </RelativeLayout>
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pie_chart_senser_alarm"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="305dp"
+            android:background="#ffffff"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="42dp"
+                android:gravity="center_vertical"
+                android:text="部件警告统计"
+                android:textColor="#ff1f1f1f"
+                android:textSize="15sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="#fff2f2f2"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#ffffff">
+
+                <TextView
+                    android:id="@+id/tv_mid_component_alarm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="至"
+                    android:textColor="#ff1f1f1f"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/tv_start_time_component_alarm"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/tv_mid_component_alarm"
+                    android:gravity="center"
+                    android:text="开始时间"/>
+
+                <TextView
+                    android:id="@+id/tv_end_time_component_alarm"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_mid_component_alarm"
+                    android:gravity="center"
+                    android:text="结束时间"/>
+
+            </RelativeLayout>
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pie_chart_component_alarm"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</ScrollView>

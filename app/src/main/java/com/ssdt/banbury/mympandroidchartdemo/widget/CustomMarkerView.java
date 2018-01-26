@@ -1,4 +1,4 @@
-package com.ssdt.banbury.mympandroidchartdemo;
+package com.ssdt.banbury.mympandroidchartdemo.widget;
 
 import android.content.Context;
 import android.widget.TextView;
@@ -7,6 +7,7 @@ import com.github.mikephil.charting.components.MarkerView;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.utils.MPPointF;
+import com.ssdt.banbury.mympandroidchartdemo.R;
 
 /**
  * @author banbury
@@ -29,7 +30,7 @@ public class CustomMarkerView extends MarkerView {
     // content (user-interface)
     @Override
     public void refreshContent(Entry e, Highlight highlight) {
-        tvContent.setText("值是" + (int)e.getY()); // set the entry-value as the display text
+        tvContent.setText(((String)e.getData())+(int)e.getY()); // set the entry-value as the display text
         super.refreshContent(e, highlight);
     }
 
@@ -40,7 +41,7 @@ public class CustomMarkerView extends MarkerView {
 
         if(mOffset == null) {
             // center the marker horizontally and vertically
-            mOffset = new MPPointF(-(getWidth() / 2), -getHeight());
+            mOffset = new MPPointF(-(getWidth() / 2), -getHeight()-5);
         }
 
         return mOffset;
