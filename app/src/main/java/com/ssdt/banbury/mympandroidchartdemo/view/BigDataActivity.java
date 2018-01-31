@@ -3,7 +3,6 @@ package com.ssdt.banbury.mympandroidchartdemo.view;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Window;
 
 import com.ssdt.banbury.mympandroidchartdemo.R;
 import com.ssdt.banbury.mympandroidchartdemo.adapter.BigDataAdapter;
@@ -23,5 +22,10 @@ public class BigDataActivity extends AppCompatActivity {
         ButterKnife.inject(this);
         BigDataAdapter bigDataAdapter = new BigDataAdapter(getSupportFragmentManager());
         mVp.setAdapter(bigDataAdapter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }
