@@ -71,7 +71,7 @@ import butterknife.OnClick;
  */
 
 public class SenserStatsFragment extends Fragment {
-    public static final String PROVIDED_BY = "Provided by盛世电梯大数据平台";
+    public static final String PROVIDED_BY = "Provided by huzipiaopiao";
     @InjectView(R.id.tv_start_time_temperature)
     TextView mTvStartTimeTemperature;
     @InjectView(R.id.tv_end_time_temperature)
@@ -363,6 +363,8 @@ public class SenserStatsFragment extends Fragment {
         legend.setOrientation(Legend.LegendOrientation.VERTICAL);
 
         pieChart.setRotationEnabled(false);
+        legend.setXOffset(-2);//调整legend向外2个dp
+        pieChart.setExtraRightOffset(30);//调整饼图右侧多30个dp，即向左移30dp
 
         List<PieEntry> entryList = new ArrayList<>();
         entryList.add(new PieEntry(mRandom.nextInt(200), alarm[0]));
@@ -419,6 +421,8 @@ public class SenserStatsFragment extends Fragment {
         legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);//设置legend的位置
         legend.setTypeface(Typeface.MONOSPACE);//设置legend字体样式
         legend.setWordWrapEnabled(true);//legend太长时，是否另起一行
+//        legend.setDrawInside(true);
+//        legend.setYOffset(1);
 
         //x轴设置动画了不好看，只设置y轴
         lineChart.animateY(2000, Easing.EasingOption.EaseInOutCubic);//设置一个y方向的动画
@@ -450,9 +454,10 @@ public class SenserStatsFragment extends Fragment {
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setDrawGridLines(false);
 //        xAxis.setCenterAxisLabels(true);
-//        xAxis.setLabelRotationAngle(15);
-        xAxis.setAvoidFirstLastClipping(true);
-        xAxis.setLabelCount(3);
+        xAxis.setLabelRotationAngle(15);
+//        xAxis.setAvoidFirstLastClipping(true);
+//        xAxis.setLabelCount(3);
+//        xAxis.setYOffset(-20);
 
         lineChart.getAxisRight().setEnabled(false);
         YAxis axisLeft = lineChart.getAxisLeft();
@@ -487,7 +492,7 @@ public class SenserStatsFragment extends Fragment {
         LineData mLineData = new LineData(temp);
         mLineData.setValueFormatter(iValueFormatter);
         lineChart.setData(mLineData);
-        lineChart.setVisibleXRange(0, 20);
+        lineChart.setVisibleXRange(0, 20);//设置可见范围一定要在setData之后设置，否则无效
 
         lineChart.setDragYEnabled(false);
         lineChart.setDragXEnabled(true);
